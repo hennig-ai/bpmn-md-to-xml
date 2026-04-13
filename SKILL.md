@@ -3,7 +3,7 @@ name: bpmn-md-to-xml
 description: >
   Convert BPMN markdown tables to BPMN 2.0 XML (.bpmn) and/or visualize .bpmn files live in bpmn.io. TRIGGER when: user wants to convert/export a BPMN markdown model to XML, or visualize/display/render a .bpmn file in the browser.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # BPMN MD to XML & Visualizer
