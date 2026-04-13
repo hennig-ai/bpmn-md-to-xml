@@ -1,0 +1,43 @@
+name: Release Cowork Skill ZIP
+
+on:
+  push:
+    tags:
+      - "cowork-v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Download dependency wheels
+        run: pip download --dest cowork/ bpmn-lib
+
+      - name: Build skill ZIP
+        run: python cowork/create_skill_zip.py
+
+      - name: Extract version from tag
+        id: version
+        run: echo "tag=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: "Cowork Skill ${{ steps.version.outputs.tag }}"
+          body: |
+            BPMN MD to XML Skill for Claude.ai Cowork.
+
+            **Install:** Upload `bpmn-md-to-xml-skill.zip` as a Cowork skill.
+          files: bpmn-md-to-xml-skill.zip
