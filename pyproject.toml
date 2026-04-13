@@ -1,0 +1,12 @@
+[project]
+name = "bpmn-md-to-xml"
+version = "0.1.0"
+description = "BPMN Markdown to XML converter"
+requires-python = ">=3.10"
+dependencies = [
+    "bpmn-lib",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
