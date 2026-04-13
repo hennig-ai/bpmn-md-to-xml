@@ -25,7 +25,7 @@ Two independent capabilities that can be used separately or together:
 #### Step 1 — Run the export script
 
 ```bash
-python <skill-dir>/scripts/export_bpmn_xml.py <input.md> <output_dir>
+python <skill-path>/scripts/export_bpmn_xml.py <input.md> <output_dir>
 ```
 
 Where `<input.md>` is the markdown file and `<output_dir>` is the target directory.

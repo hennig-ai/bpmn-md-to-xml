@@ -15,8 +15,8 @@ Layout assumption:
     This script expects a ``references/`` directory at the project root
     containing ``bpmn-schema.md`` and ``bpmn-hierarchy.md``::
 
-        <root>/
-            my-own-xml-generator/
+        bpmn-md-to-xml/
+            scripts/
                 export_bpmn_xml.py
             references/
                 bpmn-schema.md
